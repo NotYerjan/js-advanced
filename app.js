@@ -1,17 +1,30 @@
 class Person {
-  constructor(firstName, lastName) {
+  constructor(firstName, lastName, age) {
     this.firstName = firstName;
     this.lastName = lastName;
+    this.age = age;
   }
-  static fromObject(obj) {
-    return Object.assign(new Person(), obj);
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  get firstName() {
+    return this.firstName;
+  }
+  get lastName() {
+    return this.lastName;
+  }
+
+  set firstName(newName) {
+    this.firstName = newName;
+  }
+  set lastName(newLastName) {
+    this.lastName = newLastName;
   }
 }
 
-const obj = {
-  firstName: "Mario",
-  lastName: "Rossi",
-};
+const person = new Person("Mario", "Rossi", 25);
+console.log(person.fullName);
 
-const person = Person.fromObject(obj);
-console.log(person.firstName + " " + person.lastName);
+person.firstName = "Maria";
+person.lastName = "Verdi";
+console.log(person.fullName);
