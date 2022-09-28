@@ -3,16 +3,15 @@ class Person {
     this.firstName = firstName;
     this.lastName = lastName;
   }
-}
-
-class Developer extends Person {
-  constructor(firstName, lastName, role) {
-    super(firstName, lastName);
-    this.role = role;
+  static fromObject(obj) {
+    return Object.assign(new Person(), obj);
   }
 }
 
-const developer = new Developer("Mario", "Rossi", "Front-end");
-console.log(
-  developer.firstName + " " + developer.lastName + " " + developer.role
-);
+const obj = {
+  firstName: "Mario",
+  lastName: "Rossi",
+};
+
+const person = Person.fromObject(obj);
+console.log(person.firstName + " " + person.lastName);
