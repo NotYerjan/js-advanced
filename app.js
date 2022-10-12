@@ -1,30 +1,40 @@
-class Person {
-  constructor(firstName, lastName, age) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-  get firstName() {
-    return this.firstName;
-  }
-  get lastName() {
-    return this.lastName;
-  }
-
-  set firstName(newName) {
-    this.firstName = newName;
-  }
-  set lastName(newLastName) {
-    this.lastName = newLastName;
+class Square {
+  constructor(side) {
+    this.side = side;
   }
 }
 
-const person = new Person("Mario", "Rossi", 25);
-console.log(person.fullName);
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+}
 
-person.firstName = "Maria";
-person.lastName = "Verdi";
-console.log(person.fullName);
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+}
+
+class AreaCalculator {
+  static calculate(figure) {
+    if (figure instanceof Square) {
+      return figure.side * figure.side;
+    }
+    if (figure instanceof Rectangle) {
+      return figure.width * figure.height;
+    }
+    if (figure instanceof Circle) {
+      return figure.radius * 2 * Math.PI;
+    }
+  }
+}
+
+const square = new Square(4);
+const rectangle = new Rectangle(4, 2);
+const circle = new Circle(5);
+
+console.log(AreaCalculator.calculate(square));
+console.log(AreaCalculator.calculate(rectangle));
+console.log(AreaCalculator.calculate(circle));
