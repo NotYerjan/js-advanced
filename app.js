@@ -1,40 +1,10 @@
-class Square {
-  constructor(side) {
-    this.side = side;
-  }
-}
+const person = {
+  id: 1,
+  firstName: "Mario",
+  lastName: "Rossi",
+  age: 25,
+};
 
-class Rectangle {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
-  }
-}
+const { id, firstName, lastName, age } = person;
 
-class Circle {
-  constructor(radius) {
-    this.radius = radius;
-  }
-}
-
-class AreaCalculator {
-  static calculate(figure) {
-    if (figure instanceof Square) {
-      return figure.side * figure.side;
-    }
-    if (figure instanceof Rectangle) {
-      return figure.width * figure.height;
-    }
-    if (figure instanceof Circle) {
-      return figure.radius * 2 * Math.PI;
-    }
-  }
-}
-
-const square = new Square(4);
-const rectangle = new Rectangle(4, 2);
-const circle = new Circle(5);
-
-console.log(AreaCalculator.calculate(square));
-console.log(AreaCalculator.calculate(rectangle));
-console.log(AreaCalculator.calculate(circle));
+console.log(id, firstName, lastName, age);
