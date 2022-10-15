@@ -1,10 +1,6 @@
-const person = {
-  id: 1,
-  firstName: "Mario",
-  lastName: "Rossi",
-  age: 25,
-};
+function sum(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
 
-const { id, ...personInfo } = person;
-
-console.log(id, personInfo);
+const numbers = [1, 2, 3];
+console.log(sum(...numbers));
