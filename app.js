@@ -1,40 +1,12 @@
-class Square {
-  constructor(side) {
-    this.side = side;
-  }
-}
+/*
+Use the destructuring, instead of a temporary variable, to swap the values of the variables.
+*/
 
-class Rectangle {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
-  }
-}
+let num1 = 10;
+let num2 = 20;
+console.log("Before swap: ", num1, num2); // Before swap: 10 20
 
-class Circle {
-  constructor(radius) {
-    this.radius = radius;
-  }
-}
+// Variable swapping
+[num1, num2] = [num2, num1];
 
-class AreaCalculator {
-  static calculate(figure) {
-    if (figure instanceof Square) {
-      return figure.side * figure.side;
-    }
-    if (figure instanceof Rectangle) {
-      return figure.width * figure.height;
-    }
-    if (figure instanceof Circle) {
-      return figure.radius * 2 * Math.PI;
-    }
-  }
-}
-
-const square = new Square(4);
-const rectangle = new Rectangle(4, 2);
-const circle = new Circle(5);
-
-console.log(AreaCalculator.calculate(square));
-console.log(AreaCalculator.calculate(rectangle));
-console.log(AreaCalculator.calculate(circle));
+console.log("After swap: ", num1, num2); // After swap: 20 10
