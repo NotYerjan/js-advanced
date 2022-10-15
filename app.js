@@ -15,9 +15,14 @@ const person1 = {
   },
 };
 
-//! THIS FEELS SO STUPID TO USE JSON METHODS TO MAKE DEEP COPY OF AN OBJECT
 const person2 = JSON.parse(JSON.stringify(person1));
 person2.address.city = "Milan";
 
 console.log(person1);
 console.log(person2);
+
+/*
+THERE IS A PROBLEM I SHOULD HAVE DOWNLOADED EX76 INSTEAD EX70 
+I AM LEAVING LINK FOR EX76 BELLOW
+"https://github.com/YerjanDesign/js-advanced/tree/ex76/app.js"
+*/
