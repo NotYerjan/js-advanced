@@ -1,20 +1,23 @@
-class Person {
-  constructor(id, firstName, lastName, age) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
+/*In this exercises something goes wrong.
+Even though we have created a copy of person1, modifying the property city of person2 changes even the value for person1.
+This happens because we have created a shallow copy.
+How we can fix the code, in order to modify the values of person2 without changing the one of person1?
+*/
+const person1 = {
+  id: 1,
+  firstName: "Mario",
+  lastName: "Rossi",
+  age: 25,
+  address: {
+    state: "Italy",
+    city: "Rome",
+    street: "Via Romano, 12",
+  },
+};
 
-  toJson() {
-    return JSON.stringify(this);
-  }
+//! THIS FEELS SO STUPID TO USE JSON METHODS TO MAKE DEEP COPY OF AN OBJECT
+const person2 = JSON.parse(JSON.stringify(person1));
+person2.address.city = "Milan";
 
-  static fromJson(json) {
-    return JSON.parse(json);
-  }
-}
-
-const json = '{"id":1,"firstName":"Mario","lastName":"Rossi","age":25}';
-const developer = Person.fromJson(json);
-console.log(developer);
+console.log(person1);
+console.log(person2);
