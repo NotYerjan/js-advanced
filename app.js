@@ -7,4 +7,4 @@ const user = {
   age: 25,
 };
 
-localStorage.setItem("user", user);
+localStorage.setItem("user", JSON.stringify(user));
