@@ -1,15 +1,13 @@
 /*
-In this exercise we need to filter the properties of the object person in order to convert into JSON just the values of id and age.
+Perform a code refactoring by using the template literals.
 */
 
-const person = {
-  id: 1,
-  firstName: "Mario",
-  lastName: "Rossi",
-  age: 25,
-};
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
 
-const json = JSON.stringify(person, ["id", "age"]);
-
-console.log(json);
-// Should return: { "id": 1, "age": 25 }
+const developer = new Person("Mario", "Rossi");
+console.log(`${developer.firstName} ${developer.lastName}`);
