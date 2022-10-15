@@ -13,4 +13,5 @@ function repeatHello(callback) {
   setTimeout(() => clearInterval(id), 5000);
 }
 
+// ! I didn't know that the next exercise we would be adding cancelInterval after 5sec so this exercise is the same as the previous
 repeatHello(() => console.log("Hello"));
