@@ -1,17 +1,20 @@
 /*
-Write a function called `repeatHello`, which will take as parameters a callback.
-The callback function will simply print "Hello".
-The `repeatHello` function will have to execute the callback function with an interval of 1 second.
+Write a promise. If the variable called number is greater than 10, then it returns a resolve, otherwise it returns a reject.
+Then manage the promise with then and catch in case of any reject.
 
 Tips:
-
-- The `setInterval` method will be useful
-- The callback function must be an arrow function, can you also explain why?
+In then you have to print the value of number
+In catch you have to print the error
 */
-function repeatHello(callback) {
-  let id = setInterval(() => callback(), 1000);
-  setTimeout(() => clearInterval(id), 5000);
-}
+const number = 15;
 
-// ! I didn't know that the next exercise we would be adding cancelInterval after 5sec so this exercise is the same as the previous
-repeatHello(() => console.log("Hello"));
+let isGreaterThanTen = new Promise((resolve, reject) => {
+  if (number > 10) {
+    return resolve(number);
+  }
+  return reject("ERROR!!! The number is less than or equal to 10");
+});
+
+isGreaterThanTen
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
