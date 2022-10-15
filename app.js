@@ -1,5 +1,8 @@
 /*
-Get the value of the firstName text input field and print it in the console.
+Get the value of the form-input text input field and print it in the console.
 */
-let firstName = document.getElementById("firstName").value;
-console.log(firstName);
+let formInputs = document.querySelectorAll(".form-input");
+for (let formInput of formInputs) {
+  console.log(formInput.value);
+}
+// console.log(formInputs);
