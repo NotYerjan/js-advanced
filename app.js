@@ -1,5 +1,5 @@
 /*
-In the exercise.js file, we find a user object. Write a function that saves the user object in localStorage with its 'user' key.
+Starting from the previous exercise, write a method that recovers the data saved in localStorage and prints them in the console.
 */
 const user = {
   id: 1,
@@ -7,4 +7,4 @@ const user = {
   age: 25,
 };
 
-localStorage.setItem("user", user);
+localStorage.setItem("user", JSON.stringify(user));
