@@ -1,5 +1,10 @@
-function sum(arr) {
-  return arr.reduce((a, b) => a + b);
-}
-let numArr = [1, 2, 3, 4, 5];
-console.log(sum(numArr));
+const person = {
+  id: 1,
+  firstName: "Mario",
+  lastName: "Rossi",
+  age: 25,
+};
+
+const { id, ...personInfo } = person;
+
+console.log(id, personInfo);
