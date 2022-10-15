@@ -1,11 +1,6 @@
 /*
-Write a first promise that takes as parameter the variable isLogged.
-If the variable is true, then we return a random number from the resolve,
-otherwise we dispatch an error. We write a second promise that takes a variable
-of type number as a parameter. If the input parameter is greater than 0.5,
-in the resolve we must return the following data: {name: "John", age: 24},
-otherwise we must dispatch an error. Once this is done, try to chain the promises
-to eventually return the final object {name: "John", age: 24}
+Starting from the previous exercise, try to better handle all errors through
+the Error class and the catch method. Also add the finally method.
 */
 const isLogged = true;
 
@@ -14,7 +9,7 @@ function firstPromise(isLogged) {
     if (isLogged) {
       res(Math.random());
     }
-    rej("You are not logged in!");
+    rej(new Error("You are not logged in!"));
   });
 }
 
@@ -23,11 +18,12 @@ function secondPromise(number) {
     if (number > 0.5) {
       res({ name: "John", age: 24 });
     }
-    rej("Ooops!!! Something went wrong.");
+    rej(new Error("Ooops!!! Something went wrong."));
   });
 }
 
 firstPromise(isLogged)
   .then((res) => secondPromise(res))
   .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => console.log("fetching is finished"));
